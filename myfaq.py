@@ -81,7 +81,9 @@ async def init_db():
             CREATE TABLE IF NOT EXISTS spam_attempts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 user_id INTEGER,
-                attempt_time TIMESTAMP
+                attempt_time TIMESTAMP,
+                         
+                foreign key (user_id) references users(user_id)
             )
         ''')
         await db.commit()
